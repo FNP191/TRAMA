@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://4jgy1a0c87dj"]
+
+[ext_resource type="Script" uid="uid://cwcwy4ww46hhp" path="res://arbusto.gd" id="1_ge7kr"]
+[ext_resource type="Texture2D" uid="uid://cuky6p1dqohnl" path="res://Enemigos/kenney_tiny-town/Tiles/tile_0005.png" id="2_p6lh7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8w0r3"]
+radius = 7.0
+
+[node name="Arbusto" type="Node2D" unique_id=430146249 node_paths=PackedStringArray("sprite_2d")]
+script = ExtResource("1_ge7kr")
+sprite_2d = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2091132871]
+texture = ExtResource("2_p6lh7")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1106446094]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1887017059]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_8w0r3")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
