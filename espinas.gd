@@ -1,8 +1,8 @@
 class_name Espinas
 extends Node2D
 
-@export var duracion:float = 1.0
-@export var direccion: Vector2 = Vector2(1,0)
+@export var duracion:float = 10.0
+@export var direccion: Vector2 = Vector2(-1,0)
 @export var velocidad: float = 400
 @export var daño: float = 1.0
 

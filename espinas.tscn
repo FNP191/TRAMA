@@ -4,15 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://bb22qv3j3g102" path="res://kenney_tiny-town/Tiles/tile_0119.png" id="2_52d05"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8w0r3"]
-radius = 11.045361
+radius = 11.0
 
 [node name="Espinas" type="Node2D" unique_id=276837280]
 z_index = 10
 script = ExtResource("1_ifdat")
-velocidad = 30.0
+duracion = 3.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1329771208]
-rotation = 0.7853982
+rotation = -2.3561945
 texture = ExtResource("2_52d05")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=241517936]
