@@ -1,22 +1,35 @@
 [gd_scene format=3 uid="uid://4jgy1a0c87dj"]
 
-[ext_resource type="Script" uid="uid://cwcwy4ww46hhp" path="res://arbusto.gd" id="1_ge7kr"]
-[ext_resource type="Texture2D" uid="uid://cuky6p1dqohnl" path="res://Enemigos/kenney_tiny-town/Tiles/tile_0005.png" id="2_p6lh7"]
+[ext_resource type="Script" uid="uid://cvrok7d5s0acs" path="res://enemigo/arbusto.gd" id="1_fbnxa"]
+[ext_resource type="PackedScene" uid="uid://b0ncylia7nqwm" path="res://enemigo/espinas.tscn" id="2_gg1tv"]
+[ext_resource type="Texture2D" uid="uid://3deknfq1qbll" path="res://kenney_tiny-town/Tiles/tile_0005.png" id="2_p6lh7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8w0r3"]
-radius = 7.0
+radius = 170.00294
 
-[node name="Arbusto" type="Node2D" unique_id=430146249 node_paths=PackedStringArray("sprite_2d")]
-script = ExtResource("1_ge7kr")
+[node name="Arbusto" type="Node2D" unique_id=430146249 node_paths=PackedStringArray("area_2d", "sprite_2d")]
+z_index = 10
+script = ExtResource("1_fbnxa")
+espinas = ExtResource("2_gg1tv")
+area_2d = NodePath("Area2D")
 sprite_2d = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2091132871]
+scale = Vector2(1.8125, 2.125)
 texture = ExtResource("2_p6lh7")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1106446094]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1887017059]
-position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_8w0r3")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="Timer" type="Timer" parent="." unique_id=1331700389]
+unique_name_in_owner = true
+process_callback = 0
+wait_time = 2.0
+autostart = true
+
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=21357589]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
